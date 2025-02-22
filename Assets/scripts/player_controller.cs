@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -5,17 +6,17 @@ using UnityEngine;
 public class player_controller : MonoBehaviour
 {
     [Header("Properties")]
-    public float speed = 3f;
+    public float speed = 4f;
     public Rigidbody2D rb;
     private float horizontalMovement;
     private float verticalMovement;
-
+    public Animator animator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //speed = 5;
-        speed = GetComponent<float>();
+        //speed = GetComponent<float>();
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -23,12 +24,19 @@ public class player_controller : MonoBehaviour
     {
         horizontalMovement = Input.GetAxis("Horizontal"); // exact
         verticalMovement = Input.GetAxis("Vertical");
-        Debug.Log("horizontalMovement: " + horizontalMovement);
-        Debug.Log("verticalMovement: " + verticalMovement);
     }
 
     void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(horizontalMovement * speed, verticalMovement * speed);
+        var horizontalSpeed = horizontalMovement * speed;
+        var verticalSpeed = verticalMovement * speed;
+        rb.linearVelocity = new Vector2(horizontalSpeed, verticalSpeed);
+        animator.SetFloat("horizontalSpeed", horizontalMovement);
+        animator.SetFloat("verticalSpeed", verticalSpeed);
+
+        //animator.horizontalSpeed = horizontalSpeed;
+        //animator.verticalSpeed = verticalSpeed;
+
+        //Debug.Log(animator.speed);
     }
 }

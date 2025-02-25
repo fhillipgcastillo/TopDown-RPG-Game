@@ -3,13 +3,27 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class InventoryItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
+    public Item item;
+
     [Header("UI")]
     public Image image;
 
     [HideInInspector] public Transform parentAfterDrag;
+
+    private void Start()
+    {
+        InitializeItem(item);
+    }
+
+    private void InitializeItem(Item item)
+    {
+        image.sprite = item.image;
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         image.raycastTarget = false; // this will take out the raycast target

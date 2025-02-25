@@ -8,19 +8,25 @@ public class InventoryItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
 {
     [Header("UI")]
     public Image image;
+
+    [HideInInspector] public Transform parentAfterDrag;
     public void OnBeginDrag(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        image.raycastTarget = false;
+        parentAfterDrag = transform.parent;
+        transform.SetParent(transform.parent.parent);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        transform.position = eventData.position;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        image.raycastTarget = true;
+        transform.SetParent(parentAfterDrag);
+        // transform.localPosition = Vector3.zero;
     }
 
 }

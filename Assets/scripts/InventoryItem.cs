@@ -10,19 +10,27 @@ public class InventoryItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
 
     [Header("UI")]
     public Image image;
-    
-    [HideInInspector] public Item item;
-    [HideInInspector] public Transform parentAfterDrag;
+    public int countText = 1;
 
+    /*[HideInInspector]*/ public Item item;
+    [HideInInspector] public Transform parentAfterDrag;
     private void Start()
     {
-        InitializeItem(item);
+        image = GetComponent<Image>();
     }
-
-    private void InitializeItem(Item newItem)
+    public void InitializeItem(Item newItem)
     {
+        Debug.Log("Initializing item "+ newItem.name);
         item = newItem;
-        image.sprite = item.image;
+        if (newItem.image != null)
+        {
+            Debug.Log("Item image " + newItem.image.name);
+            image.sprite = item.image;
+        }
+        else
+        {
+            Debug.LogError("newItem.image is null!");
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)

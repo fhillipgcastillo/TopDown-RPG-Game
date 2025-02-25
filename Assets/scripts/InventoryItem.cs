@@ -7,11 +7,11 @@ using System;
 
 public class InventoryItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
-    public Item item;
 
     [Header("UI")]
     public Image image;
-
+    
+    [HideInInspector] public Item item;
     [HideInInspector] public Transform parentAfterDrag;
 
     private void Start()
@@ -19,8 +19,9 @@ public class InventoryItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
         InitializeItem(item);
     }
 
-    private void InitializeItem(Item item)
+    private void InitializeItem(Item newItem)
     {
+        item = newItem;
         image.sprite = item.image;
     }
 

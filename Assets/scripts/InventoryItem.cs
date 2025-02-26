@@ -14,9 +14,17 @@ public class InventoryItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
 
     /*[HideInInspector]*/ public Item item;
     [HideInInspector] public Transform parentAfterDrag;
-    private void Start()
+    private void Awake()
     {
-        image = GetComponent<Image>();
+        if (image == null)
+        {
+            Debug.Log("image was null", image);
+            image = GetComponent<Image>();
+            Debug.Log("new image", image);
+        } else
+        {
+            Debug.Log("Image is not null", image);
+        }
     }
     public void InitializeItem(Item newItem)
     {
@@ -25,6 +33,7 @@ public class InventoryItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
         if (newItem.image != null)
         {
             Debug.Log("Item image " + newItem.image.name);
+            //image = GetComponent<Image>();
             image.sprite = item.image;
         }
         else
@@ -38,6 +47,7 @@ public class InventoryItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
         image.raycastTarget = false; // this will take out the raycast target
         parentAfterDrag = transform.parent; // store the current parent in case of missed drop
         transform.SetParent(transform.root ); // te the parent as the root, so it can hover over everything
+        transform.SetAsLastSibling(); // put it at the button but herarchi over sibling
     }
 
     public void OnDrag(PointerEventData eventData)

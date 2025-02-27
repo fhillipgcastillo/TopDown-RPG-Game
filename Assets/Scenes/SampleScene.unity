@@ -6478,6 +6478,7 @@ MonoBehaviour:
   - {fileID: 1010394829}
   - {fileID: 2091998389}
   inventoryItemPrefab: {fileID: 6774415691822636606, guid: 32055b0750656a544b001711f6596f8f, type: 3}
+  maxStackedItems: 4
 --- !u!1001 &2039131843
 PrefabInstance:
   m_ObjectHideFlags: 0

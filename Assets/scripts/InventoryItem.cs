@@ -4,16 +4,20 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using Random = UnityEngine.Random;
+using UnityEngine.InputSystem.LowLevel;
 
 public class InventoryItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
 
     [Header("UI")]
     public Image image;
-    public int countText = 1;
+    public Text countText;
 
-    /*[HideInInspector]*/ public Item item;
+    [HideInInspector] public Item item;
     [HideInInspector] public Transform parentAfterDrag;
+    [HideInInspector] public int count = 1;
+
     private void Awake()
     {
         if (image == null)
@@ -35,6 +39,8 @@ public class InventoryItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
             Debug.Log("Item image " + newItem.image.name);
             //image = GetComponent<Image>();
             image.sprite = item.image;
+            //count = Random.Range(1, 4);
+            RefreshCount();
         }
         else
         {
@@ -42,6 +48,12 @@ public class InventoryItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
         }
     }
 
+    public void RefreshCount()
+    {
+        countText.text = count.ToString();
+        bool textActive = count > 1;
+        countText.gameObject.SetActive(textActive);
+    }
     public void OnBeginDrag(PointerEventData eventData)
     {
         image.raycastTarget = false; // this will take out the raycast target

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    public InventorySlot[] InventorySlots;
+    public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
     public int maxStackedItems = 4;
 
@@ -28,9 +28,11 @@ public class InventoryManager : MonoBehaviour
         Debug.Log("Change Selected value with " + newValue.ToString());
         if(selectedSlot >= 0)
         {
-            InventorySlots[selectedSlot].Deselect();
-        } 
-        InventorySlots[newValue].Select();
+            inventorySlots[selectedSlot].Deselect();
+        }
+        Debug.Log("Inventory Slots "+inventorySlots.Length);
+        Debug.Log("slot to select " + (inventorySlots[newValue] ? "exist" : "null"));
+        inventorySlots[newValue].Select();
         selectedSlot = newValue;
     }
     // game will tell the InventoryManager to SpawnItem(item, stop){}
@@ -39,9 +41,9 @@ public class InventoryManager : MonoBehaviour
     {
         // find existent item in the inventory
         // that is stackable and it not max stacked
-        for (int i = 0; i < InventorySlots.Length; i++)
+        for (int i = 0; i < inventorySlots.Length; i++)
         {
-            InventorySlot slot = InventorySlots[i];
+            InventorySlot slot = inventorySlots[i];
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
             if (itemInSlot != null 
                 && itemInSlot.item == item 
@@ -54,9 +56,9 @@ public class InventoryManager : MonoBehaviour
             }
         }
         // Item No stacked
-        for(int i = 0; i < InventorySlots.Length; i++)
+        for(int i = 0; i < inventorySlots.Length; i++)
         {
-            InventorySlot slot = InventorySlots[i];
+            InventorySlot slot = inventorySlots[i];
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
             if (itemInSlot == null)
             {
@@ -78,5 +80,10 @@ public class InventoryManager : MonoBehaviour
         inventoryItem.InitializeItem(item);
     }
 
-
+    public Item GetSelectedItem()
+    {
+        InventorySlot slot = inventorySlots[selectedSlot];
+        var itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+        return itemInSlot.item; // return item or null
+    }
 }

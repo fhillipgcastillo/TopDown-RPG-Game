@@ -22,4 +22,10 @@ public class DemoScript : MonoBehaviour
             Debug.Log("Item doesn't exist");
         }
     }
+
+    public void GetSelectedItem()
+    {
+        Item selectedItem = inventoryManager.GetSelectedItem();
+        Debug.Log("Selected item was "+selectedItem.name);
+    }
 }

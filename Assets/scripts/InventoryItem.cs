@@ -22,9 +22,9 @@ public class InventoryItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     {
         if (image == null)
         {
-            Debug.Log("image was null", image);
+            //Debug.Log("image was null", image);
             image = GetComponent<Image>();
-            Debug.Log("new image", image);
+            //Debug.Log("new image", image);
         } else
         {
             Debug.Log("Image is not null", image);
@@ -37,9 +37,7 @@ public class InventoryItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
         if (newItem.image != null)
         {
             Debug.Log("Item image " + newItem.image.name);
-            //image = GetComponent<Image>();
             image.sprite = item.image;
-            //count = Random.Range(1, 4);
             RefreshCount();
         }
         else

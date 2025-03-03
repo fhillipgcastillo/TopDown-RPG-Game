@@ -8,8 +8,15 @@ public class DemoScript : MonoBehaviour
     public void PickupIten(int id) {
         Item pickedUpItem = itemsToPickUp[id];
         if(pickedUpItem != null ) {
-            Debug.Log("Item Exist "+ pickedUpItem.name);
-            inventoryManager.AddItem(pickedUpItem);
+            Debug.Log("Picked up item:"+ pickedUpItem.name);
+            bool result = inventoryManager.AddItem(pickedUpItem);
+            if(result)
+            {
+                Debug.Log("ITEM NOT ADDED");
+            } else
+            {
+                Debug.Log("Item added");
+            }
         } else
         {
             Debug.Log("Item doesn't exist");

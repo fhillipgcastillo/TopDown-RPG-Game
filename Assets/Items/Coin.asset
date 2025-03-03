@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3df41349d9074ce429953e78075cd53d, type: 3}
-  m_Name: Mining Tool
+  m_Name: Coin
   m_EditorClassIdentifier: 
   tile: {fileID: 0}
-  type: 1
-  actionType: 1
+  type: 0
+  actionType: 0
   range: {x: 5, y: 4}
-  stackable: 0
-  maxStackSize: 1
-  image: {fileID: 21300000, guid: 580f34260f133634284daa3c2d079376, type: 3}
+  stackable: 1
+  maxStackSize: 20
+  image: {fileID: 21300000, guid: 7ef24b5bbc947f843b190886335bd48e, type: 3}

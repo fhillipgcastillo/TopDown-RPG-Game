@@ -12,6 +12,8 @@ public class Item : ScriptableObject
 
     [Header("Only UI")]
     public bool stackable = true;
+    public int maxStackSize = 10;
+
 
     [Header("Both")]
     public Sprite image;

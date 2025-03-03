@@ -53,7 +53,7 @@ public class InventoryManager : MonoBehaviour
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
             if (itemInSlot != null 
                 && itemInSlot.item == item 
-                && itemInSlot.count < maxStackedItems
+                && itemInSlot.count < item.maxStackSize
                 && itemInSlot.item.stackable == true)
             {
                 itemInSlot.count++;

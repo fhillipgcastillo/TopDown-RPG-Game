@@ -80,10 +80,27 @@ public class InventoryManager : MonoBehaviour
         inventoryItem.InitializeItem(item);
     }
 
-    public Item GetSelectedItem()
+    public Item GetSelectedItem(bool use=false)
     {
         InventorySlot slot = inventorySlots[selectedSlot];
         var itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-        return itemInSlot.item; // return item or null
+        if (itemInSlot == null)
+            return null;
+        
+        Item item = itemInSlot.item; // return item or null
+        if (item != null && use)
+        {
+            itemInSlot.count--;
+            if (itemInSlot.count <= 0)
+            {
+                // destroy item
+                Destroy(itemInSlot.gameObject);
+            }
+            else
+            {
+                itemInSlot.RefreshCount();
+            }
+        }
+        return item;
     }
 }

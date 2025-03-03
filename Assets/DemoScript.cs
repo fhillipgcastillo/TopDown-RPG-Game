@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using UnityEngine;
 
 public class DemoScript : MonoBehaviour
@@ -26,6 +27,26 @@ public class DemoScript : MonoBehaviour
     public void GetSelectedItem()
     {
         Item selectedItem = inventoryManager.GetSelectedItem();
-        Debug.Log("Selected item was "+selectedItem.name);
+        if (selectedItem != null)
+        {
+            Debug.Log("Item received " + selectedItem.name);
+        }
+        else
+        {
+            Debug.Log("There's not item in slot");
+        }
+    }
+
+    public void UseSelectedItem()
+    {
+        Item selectedItem = inventoryManager.GetSelectedItem(true);
+        if(selectedItem != null)
+        {
+            Debug.Log("Item Used "+selectedItem.name);
+        }
+        else
+        {
+            Debug.Log("Can't use the item");
+        }
     }
 }

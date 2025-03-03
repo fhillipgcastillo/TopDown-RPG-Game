@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System;
 using Random = UnityEngine.Random;
 using UnityEngine.InputSystem.LowLevel;
+using Unity.VisualScripting;
 
 public class InventoryItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
@@ -14,9 +15,11 @@ public class InventoryItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     public Image image;
     public Text countText;
 
-    [HideInInspector] public Item item;
+    public Item item;
     [HideInInspector] public Transform parentAfterDrag;
     [HideInInspector] public int count = 1;
+
+    //public var collision;
 
     private void Awake()
     {
@@ -69,6 +72,15 @@ public class InventoryItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     {
         image.raycastTarget = true; //reset the raycast to get the target
         transform.SetParent(parentAfterDrag); // reset the previous parent on drop (for now)
+    }
+
+    public void OnTriggerEnter2D(Collider2D collider)
+    {
+        Debug.Log("collition with Inventory  Item "+item.name);
+
+        //InventoryManager.instance.AddItem(item);
+        // should destroy itself
+        //Destroy(this);
     }
 
 }

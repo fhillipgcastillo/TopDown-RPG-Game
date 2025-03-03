@@ -6,8 +6,14 @@ public class InventoryManager : MonoBehaviour
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
     public int maxStackedItems = 4;
+    public static InventoryManager instance;
 
     int selectedSlot = -1;
+
+    private void Awake()
+    {
+        instance = this;
+    }
     private void Start()
     {
         ChangeSelectedSlot(0);
@@ -62,11 +68,11 @@ public class InventoryManager : MonoBehaviour
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
             if (itemInSlot == null)
             {
-                Debug.Log("Item Slot is Empty");
+                //Debug.Log("Item Slot is Empty");
                 SpawnItem(item, slot);
                 return true;
             }
-            Debug.Log("Item Slot is full");
+            //Debug.Log("Item Slot is full");
         }
         
         return false;
@@ -74,16 +80,16 @@ public class InventoryManager : MonoBehaviour
 
     public void SpawnItem(Item item,InventorySlot slot)
     {
-        Debug.Log("Spawning Item "+ item.name);
+        //Debug.Log("Spawning Item "+ item.name);
         GameObject newItemGo = Instantiate(inventoryItemPrefab, slot.transform);
         InventoryItem inventoryItem = newItemGo.GetComponent<InventoryItem>();
         inventoryItem.InitializeItem(item);
     }
 
-    public Item GetSelectedItem(bool use=false)
+    public Item GetSelectedItem(bool use = false)
     {
         InventorySlot slot = inventorySlots[selectedSlot];
-        var itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+        InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
         if (itemInSlot == null)
             return null;
         
@@ -102,5 +108,11 @@ public class InventoryManager : MonoBehaviour
             }
         }
         return item;
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("collition with Inventory manager");
+        //Item collectedItem = collision.
     }
 }

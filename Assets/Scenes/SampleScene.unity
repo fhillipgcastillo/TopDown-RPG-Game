@@ -4813,6 +4813,58 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4577694600815485743, guid: 7ac891e0864346b458bf202aa9ec9c6d, type: 3}
   m_PrefabInstance: {fileID: 1423213126}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1430339360
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1430339362}
+  - component: {fileID: 1430339361}
+  m_Layer: 0
+  m_Name: EquipementManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1430339361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430339360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b73bb584e303704b98fd87d4136fbe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryManager: {fileID: 1980646171}
+  equipements:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!4 &1430339362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430339360}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 653.8, y: 344.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1492710175 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5622748974334074491, guid: 7ac891e0864346b458bf202aa9ec9c6d, type: 3}
@@ -10624,3 +10676,4 @@ SceneRoots:
   - {fileID: 94136055}
   - {fileID: 1236041855}
   - {fileID: 1980646170}
+  - {fileID: 1430339362}

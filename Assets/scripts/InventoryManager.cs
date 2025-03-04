@@ -91,9 +91,13 @@ public class InventoryManager : MonoBehaviour
         InventorySlot slot = inventorySlots[selectedSlot];
         InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
         if (itemInSlot == null)
+        {
+            Debug.Log("Not Items in slot");
             return null;
+        }
         
         Item item = itemInSlot.item; // return item or null
+            Debug.Log("Items in slot "+item.name);
         if (item != null && use)
         {
             itemInSlot.count--;

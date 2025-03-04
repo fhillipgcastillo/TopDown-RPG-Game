@@ -29,4 +29,5 @@ public enum ItemType
 {
     BuildingBlock,
     Tool,
+    Equipement,
 }

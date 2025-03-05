@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4216353322750833414}
   - component: {fileID: 1269328924529001085}
   - component: {fileID: 2374529661355446526}
+  - component: {fileID: 1241759938015575732}
   m_Layer: 0
   m_Name: CollectableItem
   m_TagString: Untagged
@@ -102,6 +103,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
+  isInRange: 0
+  interactionKey:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!61 &2374529661355446526
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -148,3 +153,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.56, y: 2.56}
   m_EdgeRadius: 0
+--- !u!114 &1241759938015575732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4487223657796059517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c019e68396221aa4a8dc3e7f94598734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
+  isInRange: 0
+  interactionKey:
+    m_PersistentCalls:
+      m_Calls: []

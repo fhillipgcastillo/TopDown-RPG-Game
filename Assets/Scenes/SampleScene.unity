@@ -5556,7 +5556,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4447884899173978392, guid: c0fe4943bcc30fd40a26019be33ebaec, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.69
+      value: 4.94
       objectReference: {fileID: 0}
     - target: {fileID: 4447884899173978392, guid: c0fe4943bcc30fd40a26019be33ebaec, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5598,6 +5598,10 @@ PrefabInstance:
       propertyPath: item
       value: 
       objectReference: {fileID: 11400000, guid: 7c8933d7a0709eb4b869238d2be9e7cc, type: 2}
+    - target: {fileID: 6171115129338494600, guid: c0fe4943bcc30fd40a26019be33ebaec, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9165448506506763497, guid: c0fe4943bcc30fd40a26019be33ebaec, type: 3}
       propertyPath: m_Name
       value: ArmorCommon

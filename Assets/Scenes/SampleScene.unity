@@ -5606,7 +5606,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArmorCommon
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5786134770772288288, guid: c0fe4943bcc30fd40a26019be33ebaec, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

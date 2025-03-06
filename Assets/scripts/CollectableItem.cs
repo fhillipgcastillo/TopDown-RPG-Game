@@ -17,7 +17,6 @@ public class CollectableItem : MonoBehaviour
         if (item != null)
         {
             sr.sprite = item.image;
-            
         }
     }
 

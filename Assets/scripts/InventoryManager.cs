@@ -124,17 +124,13 @@ public class InventoryManager : MonoBehaviour
 
     public void EquipSelectedItem()
     {
-        try
+        Item selectedItem = GetSelectedItem();
+        if(selectedItem is Equipement equipment)
         {
-            Equipement selectedItem = (Equipement)GetSelectedItem();
-            if (selectedItem != null && selectedItem.Type == ItemType.Equipment)
-            {
-                Debug.Log($"Equipable item {selectedItem.name}");
-                EquipmentManager.Instance.EquipItem(selectedItem);
-            }
-        } catch
-        {
-            Debug.Log($"Non Equipable item");
+            Debug.Log($"Equipable item {selectedItem.name}");
+            EquipmentManager.Instance.EquipItem(equipment);
+        } else { 
+            Debug.Log($"Non Equipable item {selectedItem.name}");
         }
     }
 }

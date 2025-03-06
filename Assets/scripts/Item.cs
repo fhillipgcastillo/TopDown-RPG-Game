@@ -6,7 +6,7 @@ public class Item : ScriptableObject
 {
     [Header("Only gameplay")]
     public TileBase tile;
-    public ItemType type;
+    ItemType Type {get; set; }
     public ActionType actionType;
     public Vector2Int range = new Vector2Int(5, 4);
 
@@ -29,5 +29,7 @@ public enum ItemType
 {
     BuildingBlock,
     Tool,
-    Equipement,
+    Consumable,
+    Equipment,
+    Material,
 }

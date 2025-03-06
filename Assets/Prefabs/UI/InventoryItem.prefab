@@ -92,6 +92,8 @@ MonoBehaviour:
   image: {fileID: 0}
   countText: {fileID: 2711657363992058995}
   item: {fileID: 0}
+  equipement: {fileID: 0}
+  isEquipement: 0
   parentAfterDrag: {fileID: 0}
   count: 1
 --- !u!1 &8294067573314509459

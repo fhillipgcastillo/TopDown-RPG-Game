@@ -16,6 +16,8 @@ public class InventoryItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     public Text countText;
 
     public Item item;
+    public Equipement equipement;
+    public bool isEquipement;
     [HideInInspector] public Transform parentAfterDrag;
     [HideInInspector] public int count = 1;
 
@@ -39,6 +41,7 @@ public class InventoryItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
         item = newItem;
         if (newItem.image != null)
         {
+            isEquipement = false;
             Debug.Log("Item image " + newItem.image.name);
             image.sprite = item.image;
             RefreshCount();
@@ -48,7 +51,22 @@ public class InventoryItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
             Debug.LogError("newItem.image is null!");
         }
     }
-
+    public void InitializeItem(Equipement newItem)
+    {
+        Debug.Log("Initializing item "+ newItem.name);
+        item = newItem;
+        if (newItem.image != null)
+        {
+            isEquipement = true;
+            Debug.Log("Item image " + newItem.image.name);
+            image.sprite = item.image;
+            RefreshCount();
+        }
+        else
+        {
+            Debug.LogError("newItem.image is null!");
+        }
+    }
     public void RefreshCount()
     {
         countText.text = count.ToString();

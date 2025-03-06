@@ -8,6 +8,8 @@ public class InteractableObjet : MonoBehaviour
     public UnityEvent interactionKey;
     public Item[] itemsToAdd;
     public InventoryManager inventoryManager;
+    public bool isOpen = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,13 +26,21 @@ public class InteractableObjet : MonoBehaviour
     }
     public void OpenChest()
     {
-        Debug.Log("Opening CHest");
         // futre ideas: randomly, add items from possible array, which now is itemsToAdd.
         // instead of array of items it should have another kind of object data, with a Item and the min and max amount to give,
         // and randomnly give certain items with a randomlu amount from the min and max, based on probabilities.
-        foreach (Item item in itemsToAdd)
+        if (!isOpen)
         {
-            inventoryManager.AddItem(item);
+            Debug.Log("Opening CHest");
+
+            foreach (Item item in itemsToAdd)
+            {
+                inventoryManager.AddItem(item);
+            }
+            isOpen = true;
+        } else
+        {
+            Debug.Log("Chest is already open");
         }
     }
     private void OnTriggerEnter2D(Collider2D other)

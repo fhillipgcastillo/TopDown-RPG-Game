@@ -20,24 +20,26 @@ public class InventoryManager : MonoBehaviour
     }
     private void Update()
     {
-     if(Input.inputString != null)
+        if(Input.inputString != null)
         {
             bool isNumber = int.TryParse(Input.inputString, out int number);
             if(isNumber && number > 0 && number <=7)
             {
                 ChangeSelectedSlot(number - 1);
             }
-        }   
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Debug.Log("F key pressed down");
+            EquipSelectedItem();
+        }
     }
     void ChangeSelectedSlot(int newValue)
     {
-        Debug.Log("Change Selected value with " + newValue.ToString());
         if(selectedSlot >= 0)
         {
             inventorySlots[selectedSlot].Deselect();
         }
-        Debug.Log("Inventory Slots "+inventorySlots.Length);
-        Debug.Log("slot to select " + (inventorySlots[newValue] ? "exist" : "null"));
         inventorySlots[newValue].Select();
         selectedSlot = newValue;
     }
@@ -97,7 +99,7 @@ public class InventoryManager : MonoBehaviour
         }
         
         Item item = itemInSlot.item; // return item or null
-            Debug.Log("Items in slot "+item.name);
+        Debug.Log("Items in slot "+item.name);
         if (item != null && use)
         {
             itemInSlot.count--;
@@ -118,5 +120,17 @@ public class InventoryManager : MonoBehaviour
     {
         Debug.Log("collition with Inventory manager");
         //Item collectedItem = collision.
+    }
+
+    public void EquipSelectedItem()
+    {
+        Item selectedItem = GetSelectedItem();
+        if(selectedItem is Equipement equipment)
+        {
+            Debug.Log($"Equipable item {equipment.name}");
+            EquipmentManager.Instance.EquipItem(equipment);
+        } else { 
+            Debug.Log($"Non Equipable item {selectedItem.name}");
+        }
     }
 }

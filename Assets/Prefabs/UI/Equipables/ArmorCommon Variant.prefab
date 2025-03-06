@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: item
       value: 
       objectReference: {fileID: 11400000, guid: 7c8933d7a0709eb4b869238d2be9e7cc, type: 2}
+    - target: {fileID: 2871383558660945176, guid: 1986823ec2a8c4a4e9f53b369fd79f46, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 2871383558660945176, guid: 1986823ec2a8c4a4e9f53b369fd79f46, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.75
+      objectReference: {fileID: 0}
     - target: {fileID: 3754234461344153547, guid: 1986823ec2a8c4a4e9f53b369fd79f46, type: 3}
       propertyPath: equipement
       value: 
@@ -20,6 +28,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArmorCommon Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4444574567410718432, guid: 1986823ec2a8c4a4e9f53b369fd79f46, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 20766e27dd956114684ca2373ae7473d, type: 3}
     - target: {fileID: 8926373364249848170, guid: 1986823ec2a8c4a4e9f53b369fd79f46, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.5321412

@@ -20,11 +20,14 @@ public class InventoryItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     public bool isEquipement;
     [HideInInspector] public Transform parentAfterDrag;
     [HideInInspector] public int count = 1;
+    private Canvas _mainCanvas;
 
     //public var collision;
 
     private void Awake()
     {
+        _mainCanvas = GetComponentInParent<Canvas>().rootCanvas;
+
         if (image == null)
         {
             //Debug.Log("image was null", image);
@@ -77,8 +80,9 @@ public class InventoryItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     {
         image.raycastTarget = false; // this will take out the raycast target
         parentAfterDrag = transform.parent; // store the current parent in case of missed drop
-        //transform.SetParent(transform.root ); // te the parent as the root, so it can hover over everything
-        transform.SetParent(null, true ); // te the parent as the root, so it can hover over everything
+        transform.SetParent(_mainCanvas.transform ); // te the parent as the root, so it can hover over everything
+        // transform.SetParent(transform.root ); // te the parent as the root, so it can hover over everything
+        // transform.SetParent(null, true ); // te the parent as the root, so it can hover over everything
         transform.SetAsLastSibling(); // put it at the button but herarchi over sibling
     }
 

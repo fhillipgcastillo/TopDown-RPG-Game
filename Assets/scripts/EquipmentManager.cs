@@ -24,7 +24,7 @@ public class EquipmentManager : MonoBehaviour
     private Dictionary<EquipmentSlot, Sprite> defaultSlotSprites;
     private Dictionary<EquipmentSlot, Image> slotImages;
 
-    EquipmentManager Instance;
+    public static EquipmentManager Instance;
 
     private void Awake()
     {
@@ -84,11 +84,7 @@ public class EquipmentManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            Debug.Log("F key pressed down");
-            //Equipe();
-        }
+        
     }
 
     public bool EquipItem(Equipement equipement)

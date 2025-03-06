@@ -58,7 +58,7 @@ public class InventoryItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
         if (newItem.image != null)
         {
             isEquipement = true;
-            Debug.Log("Item image " + newItem.image.name);
+            //Debug.Log("Item image " + newItem.image.name);
             image.sprite = item.image;
             RefreshCount();
         }
@@ -77,7 +77,8 @@ public class InventoryItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     {
         image.raycastTarget = false; // this will take out the raycast target
         parentAfterDrag = transform.parent; // store the current parent in case of missed drop
-        transform.SetParent(transform.root ); // te the parent as the root, so it can hover over everything
+        //transform.SetParent(transform.root ); // te the parent as the root, so it can hover over everything
+        transform.SetParent(null, true ); // te the parent as the root, so it can hover over everything
         transform.SetAsLastSibling(); // put it at the button but herarchi over sibling
     }
 

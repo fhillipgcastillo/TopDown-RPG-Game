@@ -22,6 +22,7 @@ public class EquipmentManager : MonoBehaviour
     public List<EquipmentSlotSpriteMapping> slotSpriteMappings;
     // Dictionary for quick lookup of sprites by slot type.
     private Dictionary<EquipmentSlot, Sprite> defaultSlotSprites;
+    private Dictionary<EquipmentSlot, Image> slotImages;
 
     EquipmentManager Instance;
 
@@ -34,6 +35,7 @@ public class EquipmentManager : MonoBehaviour
         // Automatically create a child GameObject for each EquipmentSlot enum value
         // Convert the list of mappings to a dictionary for easier lookup
         defaultSlotSprites = slotSpriteMappings.ToDictionary(mapping => mapping.slot, mapping => mapping.defaultSprite);
+        slotImages = new Dictionary<EquipmentSlot, Image>();
 
         // Create a child GameObject for each EquipmentSlot and assign its default sprite.
         foreach (EquipmentSlot slot in Enum.GetValues(typeof(EquipmentSlot)))
@@ -51,12 +53,13 @@ public class EquipmentManager : MonoBehaviour
             if (defaultSlotSprites.TryGetValue(slot, out Sprite defaultSprite))
             {
                 slotImage.sprite = defaultSprite;
-                
+                SetImageOpacity(slotImage, 0.4f);
             }
             else
             {
                 Debug.LogWarning($"No default sprite assigned for EquipmentSlot: {slot}");
             }
+            slotImages[slot] = slotImage;
 
             // Optionally adjust RectTransform settings if this is a UI element.
             RectTransform rectTransform = slotChild.GetComponent<RectTransform>();
@@ -65,7 +68,7 @@ public class EquipmentManager : MonoBehaviour
                 rectTransform.localPosition = Vector3.zero;
                 rectTransform.sizeDelta = new Vector2(100, 100); // Example size; adjust as needed.
                 rectTransform.localScale = Vector3.one;
-                rectTransform.
+                
             }
 
             // (Optional) Customize the image's properties (size, color, etc.) here.
@@ -98,8 +101,35 @@ public class EquipmentManager : MonoBehaviour
         }
         slots[equipement.slot] = equipement;
         Debug.Log($"{equipement.name} equiped in   {equipement.slot} slot");
+
+        if (slotImages.TryGetValue(equipement.slot, out Image slotImage))
+        {
+            slotImage.sprite = equipement.image; // Update the sprite to the equipped item
+            SetImageOpacity(slotImage, 1.0f); // Fully visible when equipped
+        }
+
         return true;
     }
+    public void UnequipItem(EquipmentSlot slot)
+    {
+        if (slots[slot] == null)
+        {
+            Debug.Log($"{slot} slot is already empty.");
+            return;
+        }
 
+        slots[slot] = null;
 
+        if (slotImages.TryGetValue(slot, out Image slotImage))
+        {
+            slotImage.sprite = defaultSlotSprites[slot]; // Restore default sprite
+            SetImageOpacity(slotImage, 0.5f); // Lower opacity when no item is equipped
+        }
+    }
+    private void SetImageOpacity(Image image, float opacity)
+    {
+        Color color = image.color;
+        color.a = opacity; // Change only the alpha
+        image.color = color;
+    }
 }

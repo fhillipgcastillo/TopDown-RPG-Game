@@ -7,14 +7,15 @@ public class Equipement : Item
   public int defense;
   public int attackPower;
   public EquipmentSlot slot;
-  public new bool stackable = false;
+
   public EquipementQuality quality = EquipementQuality.Common;
   public ItemType Type = ItemType.Equipment;
 }
 
 public enum EquipmentSlot { Head, Chest, Lesgs, Hands, Feet, Weapon }
 
-public enum EquipementQuality {
+public enum EquipementQuality
+{
   Common,
   Uncommon,
   Rare,

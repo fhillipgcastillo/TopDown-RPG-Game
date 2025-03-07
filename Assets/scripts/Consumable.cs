@@ -5,5 +5,5 @@ using UnityEngine;
 public class Consumable: Item
 {
     public int healthRestore;
-    public int maxRestore;
+    public int staminaRestore;
 }

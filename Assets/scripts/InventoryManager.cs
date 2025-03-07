@@ -31,9 +31,12 @@ public class InventoryManager : MonoBehaviour
             {
                 EquipSelectedItem();
             }
-
-            if (Input.GetKeyDown(KeyCode.I) && MainInventory != null)
+            if(Input.GetKeyDown(KeyCode.E))
             {
+                ConsumeSelectedItem();
+            }
+            if (Input.GetKeyDown(KeyCode.I) && MainInventory != null)
+            {   
                 toggleMainInventory();
             }
         }
@@ -146,9 +149,26 @@ public class InventoryManager : MonoBehaviour
             Debug.Log($"Equipable item {equipment.name}");
             EquipmentManager.Instance.EquipItem(equipment);
         }
+        else if(selectedItem is Consumable consumable){
+
+        }
         else
         {
             Debug.Log($"Non Equipable item {selectedItem.name}");
+        }
+    }
+
+    public void ConsumeSelectedItem(){
+        Item selectedItem = GetSelectedItem();
+        if (selectedItem is Consumable consumable)
+        {
+            Debug.Log($"Consumable item {consumable.name}");
+            PlayerManager.Instance.HealPlayer(consumable.healthRestore);
+            PlayerManager.Instance.RestoreStamina(consumable.staminaRestore);
+        }
+        else
+        {
+            Debug.Log($"Non Consumable item {selectedItem.name}");
         }
     }
 }

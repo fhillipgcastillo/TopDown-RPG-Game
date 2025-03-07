@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 public class Item : ScriptableObject
 {
     [Header("Only gameplay")]
-    public TileBase tile;
+    // public TileBase tile;
     ItemType Type {get; set; }
     public ActionType actionType;
     public Vector2Int range = new Vector2Int(5, 4);
@@ -21,6 +21,7 @@ public class Item : ScriptableObject
 
 public enum ActionType
 {
+    None,
     Dig,
     Mine,
 }

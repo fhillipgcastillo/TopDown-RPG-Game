@@ -9,18 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18b4d141a5e3e9f46a6f2b2dffdf59de, type: 3}
-  m_Name: Armor
+  m_Script: {fileID: 11500000, guid: f1cf8e008b81d73469ab70db7baf6862, type: 3}
+  m_Name: Health Potion
   m_EditorClassIdentifier: 
-  tile: {fileID: 0}
   actionType: 0
   range: {x: 5, y: 4}
-  stackable: 0
-  maxStackSize: 1
-  image: {fileID: 21300000, guid: 287f55e826bdab1419d2fac7fe69597f, type: 3}
-  defense: 0
-  attackPower: 0
-  slot: 1
-  stackable: 0
-  quality: 0
-  Type: 3
+  stackable: 1
+  maxStackSize: 5
+  image: {fileID: 21300000, guid: 556ed73f2fb93ae4aa896c2dfd53fa4f, type: 3}
+  healthRestore: 25
+  staminaRestore: 0

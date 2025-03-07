@@ -5,8 +5,8 @@ public class InventoryManager : MonoBehaviour
 {
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
-    public int maxStackedItems = 4;
     public static InventoryManager instance;
+    public GameObject MainInventory;
 
     int selectedSlot = -1;
 
@@ -20,23 +20,39 @@ public class InventoryManager : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.inputString != null)
+        if (Input.inputString != null)
         {
             bool isNumber = int.TryParse(Input.inputString, out int number);
-            if(isNumber && number > 0 && number <=7)
+            if (isNumber && number > 0 && number <= 7)
             {
                 ChangeSelectedSlot(number - 1);
             }
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                EquipSelectedItem();
+            }
+
+            if (Input.GetKeyDown(KeyCode.I) && MainInventory != null)
+            {
+                toggleMainInventory();
+            }
         }
-        if (Input.GetKeyDown(KeyCode.F))
+
+    }
+    void toggleMainInventory()
+    {
+        if (MainInventory.activeSelf)
         {
-            Debug.Log("F key pressed down");
-            EquipSelectedItem();
+            MainInventory.SetActive(false);
+        }
+        else
+        {
+            MainInventory.SetActive(true);
         }
     }
     void ChangeSelectedSlot(int newValue)
     {
-        if(selectedSlot >= 0)
+        if (selectedSlot >= 0)
         {
             inventorySlots[selectedSlot].Deselect();
         }
@@ -53,8 +69,8 @@ public class InventoryManager : MonoBehaviour
         {
             InventorySlot slot = inventorySlots[i];
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-            if (itemInSlot != null 
-                && itemInSlot.item == item 
+            if (itemInSlot != null
+                && itemInSlot.item == item
                 && itemInSlot.count < item.maxStackSize
                 && itemInSlot.item.stackable == true)
             {
@@ -64,7 +80,7 @@ public class InventoryManager : MonoBehaviour
             }
         }
         // Item No stacked
-        for(int i = 0; i < inventorySlots.Length; i++)
+        for (int i = 0; i < inventorySlots.Length; i++)
         {
             InventorySlot slot = inventorySlots[i];
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
@@ -76,11 +92,11 @@ public class InventoryManager : MonoBehaviour
             }
             //Debug.Log("Item Slot is full");
         }
-        
+
         return false;
     }
 
-    public void SpawnItem(Item item,InventorySlot slot)
+    public void SpawnItem(Item item, InventorySlot slot)
     {
         //Debug.Log("Spawning Item "+ item.name);
         GameObject newItemGo = Instantiate(inventoryItemPrefab, slot.transform);
@@ -97,9 +113,9 @@ public class InventoryManager : MonoBehaviour
             Debug.Log("Not Items in slot");
             return null;
         }
-        
+
         Item item = itemInSlot.item; // return item or null
-        Debug.Log("Items in slot "+item.name);
+        Debug.Log("Items in slot " + item.name);
         if (item != null && use)
         {
             itemInSlot.count--;
@@ -125,11 +141,13 @@ public class InventoryManager : MonoBehaviour
     public void EquipSelectedItem()
     {
         Item selectedItem = GetSelectedItem();
-        if(selectedItem is Equipement equipment)
+        if (selectedItem is Equipement equipment)
         {
             Debug.Log($"Equipable item {equipment.name}");
             EquipmentManager.Instance.EquipItem(equipment);
-        } else { 
+        }
+        else
+        {
             Debug.Log($"Non Equipable item {selectedItem.name}");
         }
     }

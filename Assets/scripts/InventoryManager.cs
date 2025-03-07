@@ -135,6 +135,31 @@ public class InventoryManager : MonoBehaviour
         return item;
     }
 
+    public void RemoveSelecteditem(){
+        InventorySlot slot = inventorySlots[selectedSlot];
+        InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+        if (itemInSlot == null)
+        {
+            Debug.Log("Not Items in slot");
+            return;
+        }
+
+        Item item = itemInSlot.item; // return item or null
+        Debug.Log("Items in slot " + item.name);
+        if (item != null)
+        {
+            itemInSlot.count--;
+            if (itemInSlot.count <= 0)
+            {
+                // destroy item
+                Destroy(itemInSlot.gameObject);
+            }
+            else
+            {
+                itemInSlot.RefreshCount();
+            }
+        }
+    }
     public void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("collition with Inventory manager");
@@ -162,13 +187,14 @@ public class InventoryManager : MonoBehaviour
         Item selectedItem = GetSelectedItem();
         if (selectedItem is Consumable consumable)
         {
+            RemoveSelecteditem();
             Debug.Log($"Consumable item {consumable.name}");
             PlayerManager.Instance.HealPlayer(consumable.healthRestore);
             PlayerManager.Instance.RestoreStamina(consumable.staminaRestore);
         }
         else
         {
-            Debug.Log($"Non Consumable item {selectedItem.name}");
+            Debug.Log($"Non Consumable item selected");
         }
     }
 }

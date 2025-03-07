@@ -1,13 +1,26 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager Instance;
     public PlayerStats_so playerStats;
-
+    public GameObject HealthSliderUI;
+    public GameObject StarminaSliderUI;
+    
     public void Awake()
     {
         Instance = this;
+    }
+    public void Start(){
+        playerStats.health = 50;
+    }
+    public void Update(){
+        if(HealthSliderUI.GetComponent<Slider>().value != playerStats.health)
+            HealthSliderUI.GetComponent<Slider>().value = playerStats.health;
+        if(StarminaSliderUI.GetComponent<Slider>().value != playerStats.stamina)
+            StarminaSliderUI.GetComponent<Slider>().value = playerStats.stamina;
+        // SliderUI.GetComponent<Slider>().UpdateStamina(playerStats.stamina, playerStats.maxStamina);
     }
     public void HealPlayer(int heal)
     {

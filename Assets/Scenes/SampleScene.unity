@@ -2558,53 +2558,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3524912223695810322, guid: 1c1e76552ad7c8449a5aba961a81c40c, type: 3}
   m_PrefabInstance: {fileID: 7016013644202284447}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1722894116
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1722894118}
-  - component: {fileID: 1722894117}
-  m_Layer: 0
-  m_Name: PlayerManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1722894117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1722894116}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ba6f68f90b28074ca5273564a456295, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerStats: {fileID: 11400000, guid: 71ed0e92335fc7745a7b2fbfc002b2fa, type: 2}
-  HealthSliderUI: {fileID: 0}
-  StarminaSliderUI: {fileID: 0}
---- !u!4 &1722894118
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1722894116}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.244114, y: -4.0266423, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1774431687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6022,7 +5975,6 @@ SceneRoots:
   - {fileID: 1917566589}
   - {fileID: 289801091}
   - {fileID: 2042896616863526010}
-  - {fileID: 1722894118}
   - {fileID: 950965145879994806}
   - {fileID: 1290526159}
   - {fileID: 1774431687}

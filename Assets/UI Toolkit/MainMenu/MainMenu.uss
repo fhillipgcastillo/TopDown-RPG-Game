@@ -3,25 +3,65 @@
     -unity-text-align: upper-center;
     color: rgb(255, 255, 255);
     background-color: rgb(12, 81, 200);
-    padding-top: 24px;
-    padding-right: 64px;
-    padding-bottom: 24px;
-    padding-left: 64px;
-    width: 100%;
-    margin-top: 50px;
+    padding-top: 5%;
+    padding-right: 20%;
+    padding-bottom: 5%;
+    padding-left: 20%;
+    width: auto;
+    margin-top: 2%;
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
     border-bottom-right-radius: 24px;
     border-bottom-left-radius: 24px;
     text-shadow: 0 0 24px rgba(0, 0, 0, 0);
     -unity-text-outline-width: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+.gameContainer {
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    height: 100%;
+    width: 100%;
+    align-self: center;
+}
+
+.contentContainer {
+    padding-top: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+    padding-left: 5%;
+    align-self: auto;
+    align-items: center;
+    justify-content: center;
 }
 
 .MenuMainTitle {
-    -unity-font-style: bold-and-italic;
-    font-size: 64px;
+    -unity-font-definition: resource('FlatSkin/Font/Roboto-BoldItalic');
+    font-size: 45px;
     color: rgb(12, 81, 200);
-    -unity-text-outline-color: rgba(255, 255, 255, 0);
-    -unity-text-outline-width: 4px;
-    -unity-text-align: upper-center;
+    -unity-font-style: normal;
+    -unity-text-align: middle-center;
+    letter-spacing: 16px;
+}
+
+.optionsContainer {
+    align-content: auto;
+    align-self: auto;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    padding-top: 16px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+    padding-left: 16px;
+    min-width: 100%;
+    max-width: 50%;
 }

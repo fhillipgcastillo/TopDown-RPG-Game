@@ -17,6 +17,7 @@ public class CollectableItem : MonoBehaviour
         if (item != null)
         {
             sr.sprite = item.image;
+            sr.color = item.useColor ? item.color : sr.color;
         }
     }
 

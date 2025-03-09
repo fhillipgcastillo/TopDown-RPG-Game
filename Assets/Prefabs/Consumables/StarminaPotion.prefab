@@ -14,19 +14,19 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: b3f4faf9259c8a4408f4359063759218, type: 2}
     - target: {fileID: 4216353322750833414, guid: 08e23313dae88a44bb298d025d10e081, type: 3}
       propertyPath: m_Color.b
-      value: 0.90588236
+      value: 0.16430442
       objectReference: {fileID: 0}
     - target: {fileID: 4216353322750833414, guid: 08e23313dae88a44bb298d025d10e081, type: 3}
       propertyPath: m_Color.g
-      value: 0.2118612
+      value: 0.83396226
       objectReference: {fileID: 0}
     - target: {fileID: 4216353322750833414, guid: 08e23313dae88a44bb298d025d10e081, type: 3}
       propertyPath: m_Color.r
-      value: 0.16470589
+      value: 0.13060157
       objectReference: {fileID: 0}
     - target: {fileID: 4487223657796059517, guid: 08e23313dae88a44bb298d025d10e081, type: 3}
       propertyPath: m_Name
-      value: StarminaPotion Variant
+      value: StarminaPotion
       objectReference: {fileID: 0}
     - target: {fileID: 8993102693904370828, guid: 08e23313dae88a44bb298d025d10e081, type: 3}
       propertyPath: m_LocalPosition.x

@@ -38,6 +38,13 @@ public class InventoryItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
             Debug.Log("Image is not null", image);
         }
     }
+    private void Start()
+    {
+        if(image != null && item.useColor)
+        {
+            image.color = item.color;
+        }
+    }
     public void InitializeItem(Item newItem)
     {
         Debug.Log("Initializing item "+ newItem.name);

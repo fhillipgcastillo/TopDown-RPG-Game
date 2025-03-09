@@ -17,6 +17,8 @@ public class Item : ScriptableObject
 
     [Header("Both")]
     public Sprite image;
+    public Color color;
+    public bool useColor = false;
 }
 
 public enum ActionType

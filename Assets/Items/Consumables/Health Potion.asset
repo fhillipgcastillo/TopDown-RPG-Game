@@ -17,5 +17,7 @@ MonoBehaviour:
   stackable: 1
   maxStackSize: 5
   image: {fileID: 21300000, guid: 556ed73f2fb93ae4aa896c2dfd53fa4f, type: 3}
+  color: {r: 0.90943396, g: 0.09411765, b: 0.19732988, a: 1}
+  useColor: 1
   healthRestore: 25
   staminaRestore: 0

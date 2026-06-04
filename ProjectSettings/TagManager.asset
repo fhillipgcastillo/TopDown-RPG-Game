@@ -14,9 +14,9 @@ TagManager:
   - UI
   - 
   - ground
-  - foreground
+  - mid-ground
   - player
-  - 
+  - foreground
   - 
   - 
   - 
@@ -53,6 +53,15 @@ TagManager:
     locked: 0
   - name: player
     uniqueID: 279155929
+    locked: 0
+  - name: OverPlayer
+    uniqueID: 695365093
+    locked: 0
+  - name: UI
+    uniqueID: 1174876601
+    locked: 0
+  - name: UI Modal
+    uniqueID: 3183937209
     locked: 0
   m_RenderingLayers:
   - Default
